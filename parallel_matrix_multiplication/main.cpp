@@ -41,14 +41,14 @@ int main()
     vector<vector<int>> C(N, vector<int>(N, 0));
     vector<vector<int>> D(N, vector<int>(N, 0));
 
-    //auto start = high_resolution_clock::now();
-    //multiplySingle(A, B, C);
-    //auto end = high_resolution_clock::now();
-    //cout << "Single thread: " << duration_cast<duration<double>>(end - start).count() << " seconds" << endl;
-
     auto start = high_resolution_clock::now();
-    multiplyParallel(A, B, D);
+    multiplySingle(A, B, C);
     auto end = high_resolution_clock::now();
+    cout << "Single thread: " << duration_cast<duration<double>>(end - start).count() << " seconds" << endl;
+
+    start = high_resolution_clock::now();
+    multiplyParallel(A, B, D);
+    end = high_resolution_clock::now();
     cout << "Multi-threaded time: " << duration_cast<duration<double>>(end - start).count() << " seconds" << endl;
 
     return 0;
